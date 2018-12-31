@@ -37,10 +37,10 @@ def convert(value, unit):
 print "Date: ",datetime.now()
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(11, GPIO.OUT)
-print('11 pin Off')
+#print('11 pin Off')
 GPIO.output(11, False) # записываем в GPIO 11 “1” (3.3 V)
 time.sleep(1)
-print('11 pin On')
+#print('11 pin On')
 GPIO.output(11, True) # записываем в GPIO 11 “0” (0 V)
 time.sleep(5)
 
@@ -74,7 +74,7 @@ time.sleep(5)
 ps_data = ps.get_data()
 print "Temperature2:", convert(ps_data['t'], units[temperature_field]), "°"+units[temperature_field], "Pressure:", convert(ps_data['p'], units[pressure_field]), units[pressure_field], "Humidity:", ps_data['h'], units[humidity_field]
 
-temper2 = ('1',ps_data['t'],convert(ps_data['p'], units[pressure_field]),ps_data['h'])
+temper2 = ('2',ps_data['t'],convert(ps_data['p'], units[pressure_field]),ps_data['h'])
 cursor.execute(add_temperature,temper2)
 cnx.commit()
 
