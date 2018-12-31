@@ -74,7 +74,7 @@ time.sleep(5)
 ps_data = ps.get_data()
 print "Temperature2:", convert(ps_data['t'], units[temperature_field]), "°"+units[temperature_field], "Pressure:", convert(ps_data['p'], units[pressure_field]), units[pressure_field], "Humidity:", ps_data['h'], units[humidity_field]
 
-temper2 = ('2',ps_data['t'],convert(ps_data['p'], units[pressure_field]),ps_data['h'])
+temper2 = ('1',ps_data['t'],convert(ps_data['p'], units[pressure_field]),ps_data['h'])
 cursor.execute(add_temperature,temper2)
 cnx.commit()
 
