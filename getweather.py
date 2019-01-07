@@ -35,13 +35,14 @@ def convert(value, unit):
 		return round(value * 0.00750061683, 2)
 	return value
 print "Date: ",datetime.now()
+print "Power reset"
 GPIO.setmode(GPIO.BCM)
+#GPIO.setwarnings(False)
 GPIO.setup(11, GPIO.OUT)
-#print('11 pin Off')
 GPIO.output(11, False) # записываем в GPIO 11 “1” (3.3 V)
-time.sleep(1)
-#print('11 pin On')
+time.sleep(3)
 GPIO.output(11, True) # записываем в GPIO 11 “0” (0 V)
+GPIO.cleanup()
 time.sleep(5)
 
 port = 1
